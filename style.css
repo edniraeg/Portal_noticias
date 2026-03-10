@@ -1,0 +1,387 @@
+/* =========================================
+   1. VARIÁVEIS E PALETA DE CORES
+   ========================================= */
+:root {
+    --primary-color: #0a4b78;  /* Azul Corporativo / Elegante */
+    --accent-color: #003008;   /* Verde Escuro */
+    --accent-hover: #004d0d;   /* Verde levemente mais claro para hover */
+    --bg-light: #f4f6f8;       /* Cinza muito claro e limpo para o fundo */
+    --text-dark: #2c3e50;      /* Texto principal suave para leitura */
+    --text-light: #64748b;     /* Texto secundário */
+    --border-color: #e2e8f0;   /* Bordas discretas */
+    --transition-speed: 0.3s;
+}
+
+/* =========================================
+   2. RESET E BASE
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais suave */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   3. CABEÇALHO E LOGO
+   ========================================= */
+.top-logo-container {
+    background-color: white;
+    padding: 25px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.top-logo {
+    max-height: 80px;
+    width: auto;
+    display: inline-block;
+    transition: transform var(--transition-speed);
+}
+
+.top-logo:hover {
+    transform: scale(1.02); /* Leve pulso ao passar o mouse na logo */
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.flex-nav {
+    display: flex;
+    justify-content: center; /* Centraliza o menu */
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Mais respiro entre os links */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: all var(--transition-speed);
+    padding: 5px 0;
+}
+
+.nav-links a:hover {
+    color: #a0d2eb; /* Azul claro suave no hover para não sumir no fundo escuro */
+}
+
+/* Menu Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o submenu embaixo do item */
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: var(--text-dark);
+    padding: 12px 20px;
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    padding-left: 25px; /* Efeito elegante empurrando o texto no hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* =========================================
+   4. DESTAQUE PRINCIPAL (HERO)
+   ========================================= */
+.hero-highlight {
+    display: flex;
+    background: white;
+    margin-top: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.hero-image {
+    flex: 1 1 55%; /* Dá um pouco mais de espaço para a imagem */
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-content {
+    flex: 1 1 45%;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 2.4rem;
+    margin: 15px 0;
+    line-height: 1.2;
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
+.btn-leia-mais {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    align-self: flex-start;
+    transition: all var(--transition-speed);
+}
+
+.btn-leia-mais:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 48, 8, 0.3); /* Sombra verde elegante */
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 50px 0;
+}
+
+/* =========================================
+   5. NOTÍCIAS EM LISTA (CARDS HORIZONTAIS)
+   ========================================= */
+.news-section h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Tracinho embaixo do título da seção */
+.news-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.stacked-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.card-horizontal {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.card-horizontal:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    border-color: var(--border-color);
+}
+
+.card-horizontal img {
+    width: 380px;
+    min-width: 380px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-horizontal .card-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-horizontal h3 {
+    margin: 12px 0;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+.card-horizontal p {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.link-noticia {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap var(--transition-speed);
+}
+
+.link-noticia:hover {
+    color: var(--accent-color);
+    gap: 10px; /* Empurra a setinha pra direita no hover */
+}
+
+/* =========================================
+   6. TAGS DE CATEGORIAS
+   ========================================= */
+.tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-radius: 20px; /* Pílula elegante */
+    color: white;
+    display: inline-block;
+    width: fit-content;
+}
+.tag-tech { background-color: #3bafda; }
+.tag-sport { background-color: #37bc9b; }
+.tag-gossip { background-color: #ffce54; color: #333; }
+.tag-news { background-color: #da4453; }
+
+/* =========================================
+   7. RODAPÉ
+   ========================================= */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: auto;
+}
+
+footer p {
+    opacity: 0.8;
+    font-size: 0.95rem;
+    margin: 5px 0;
+}
+
+/* =========================================
+   8. RESPONSIVIDADE (MOBILE)
+   ========================================= */
+@media (max-width: 900px) {
+    .card-horizontal img {
+        width: 300px;
+        min-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 10px 0;
+    }
+    
+    /* Corrige o layout da Hero no celular */
+    .hero-highlight {
+        flex-direction: column;
+    }
+    
+    .hero-image img {
+        height: 250px;
+    }
+    
+    .hero-content {
+        padding: 30px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Corrige as notícias secundárias no celular */
+    .card-horizontal {
+        flex-direction: column;
+    }
+
+    .card-horizontal img {
+        width: 100%;
+        min-width: auto;
+        height: 220px;
+    }
+    
+    .card-horizontal .card-body {
+        padding: 20px;
+    }
+}
+
+/* =========================================
+   9. ANIMAÇÕES
+   ========================================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px) translateX(-50%); }
+    to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
