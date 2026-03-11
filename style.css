@@ -33,27 +33,36 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    
 }
 
 /* =========================================
    3. CABEÇALHO E LOGO
    ========================================= */
 .top-logo-container {
-    background-color: white;
-    padding: 25px 0;
+    /* background-color: rgb(240, 18, 18); */
+    padding: 0;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
+    margin: 0;
+   
 }
 
 .top-logo {
-    max-height: 80px;
-    width: auto;
-    display: inline-block;
+    /* background-color: violet; */
+    /* max-height: 80px; */
+    width: 200px;
+    height: 200px;
+    padding: 1px;
+    /* display: inline-block; */
     transition: transform var(--transition-speed);
+    
 }
 
 .top-logo:hover {
-    transform: scale(1.02); /* Leve pulso ao passar o mouse na logo */
+    /* transform: scale(1.02);  */
+    /* Leve pulso ao passar o mouse na logo */
+    transform: scale(2.08); /* Leve pulso ao passar o mouse na logo */
 }
 
 .navbar {
@@ -243,6 +252,7 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.04);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid transparent;
+    /* height: 190px; */
 }
 
 .card-horizontal:hover {
@@ -263,6 +273,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
 
 .card-horizontal h3 {
